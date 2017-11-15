@@ -60,67 +60,7 @@
 			//switch statement to categorically style	
 			
 				c = L.geoJson(subbasin1, {
-				style: function(feature){
-					switch (feature.properties.OBJECTID) {
-						case 1: return {color:"#993333", 
-							weight:3};
-						case 2: return {color:"#993333",
-							weight:3};
-						case 3: return {color:"#993333",
-							weight:3};
-						case 4: return {color:"#993333",
-							weight:3};
-						case 5: return {color:"#993333",
-							weight:3};
-						case 6: return {color:"#993333",
-							weight:3};
-						case 7: return {color:"#993333",
-							weight:3};
-						case 8: return {color:"#993333",
-							weight:3};
-						case 9: return {color:"#993333",
-							weight:3};
-						case 10: return {color:"#993333",
-							weight:3};
-						case 11: return {color:"#993333",
-							weight:3};
-						case 12: return {color:"#993333",
-							weight:3};
-						case 13: return {color:"#993333",
-							weight:3};
-						case 14: return {color:"#993333",
-							weight:3};
-						case 15: return {color:"#993333",
-							weight:3};
-						case 16: return {color:"#993333",
-							weight:3};
-						case 17: return {color:"#993333",
-							weight:3};
-						case 18: return {color:"#993333",
-							weight:3};
-						case 19: return {color:"#993333",
-							weight:3};
-						case 20: return {color:"#993333",
-							weight:3};
-						case 21: return {color:"#993333",
-							weight:3};
-						case 22: return {color:"#993333",
-							weight:3};
-						case 23: return {color:"#993333",
-							weight:3};
-						case 24: return {color:"#993333",
-							weight:3};
-						case 25: return {color:"#993333",
-							weight:3};
-						case 26: return {color:"#993333",
-							weight:3};
-						case 27: return {color:"#993333",
-							weight:3};
-						case 28: return {color:"#993333",
-							weight:3};
-						}
-					}
-				}),
+				style: subbasinstyle}),
 				
 				d = L.geoJson(shoreline, {
 				style: Shoreline_style}),
