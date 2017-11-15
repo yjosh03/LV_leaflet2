@@ -69,16 +69,7 @@
 				//switch statement to categorically style	
 				
 				e = L.geoJson(countries, {
-				style: function(feature){
-					switch (feature.properties.NAME_ENGLI) {
-						case 'Burundi': return {color: "#ccff00"};
-						case 'Kenya': return {color: "#ffcc00"};
-						case 'Rwanda': return {color: "#996600"};
-						case 'Tanzania': return {color: "#993333"};
-						case 'Uganda': return {color: "#ff3333"};
-						case 'Democratic Republic of the Congo': return {color: "#ff6600"};
-						}
-					},
+				style: Country_style,
 					onEachFeature: onEachFeature
 				}),
 				
@@ -216,7 +207,7 @@
 				
 			// Create basemaps variable to call within the control
 			var baseMaps = {
-				"Bing Imagery": binglayer,
+				//"Bing Imagery": binglayer,
 				"Esri Imagery": Esri_WorldImagery,
 				"Gray Scale":Stamen_TonerLite,
 				"Open Street Map": OpenStreetMap_Mapnik,
