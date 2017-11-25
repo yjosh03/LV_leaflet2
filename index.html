@@ -10,7 +10,7 @@
 	<head>
 		<meta charset="utf-8">
 		
-		<title>Vertical Oak I</title>
+		<title>Vertical Oak III</title>
 		
 		<!-- Stylesheets -->
 		<link rel="stylesheet" href="./Leaflet-1.2.0/leaflet.css"/>
@@ -277,7 +277,7 @@
 				
 			map.on('overlayremove', function (eventLayer) {
 			    // If layer remove = bathyImage remove layer
-			    if (eventLayer.name === 'Bathymetry') {
+			    if (eventLayer.name === "<a target='_blank' href='http://dx.doi.org/10.7910/DVN/SOEKNR'>Bathymetry</a>") {
 				this.removeControl(bLegend);
 			    }
 			    if (eventLayer.name === 'Country Boundaries') {
@@ -286,7 +286,7 @@
 			});
 			map.on('overlayadd', function (eventLayer) {
 			    // if layer add = bathyImage add legend
-			    if (eventLayer.name === 'Bathymetry') {
+			    if (eventLayer.name === "<a target='_blank' href='http://dx.doi.org/10.7910/DVN/SOEKNR'>Bathymetry</a>") {
 				bLegend.addTo(this);
 			    }
 			    if (eventLayer.name === 'Country Boundaries') {
