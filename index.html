@@ -221,16 +221,15 @@
 			
 			// Create overlays variable to call within the control. Calls layer groups
 			var overLays = {
-				"Basin": aShp,
-				"Bathymetry":bathyImage,
+				"<a target='_blank' href='http://dx.doi.org/10.7910/DVN/Z5RMYD'>Basin</a>": aShp,
+				"<a target='_blank' href='http://dx.doi.org/10.7910/DVN/SOEKNR'>Bathymetry</a>":bathyImage,
 				"Country Boundaries":eShp,				
 				"Partner Research Institutions":fShp,
-				"Rivers":bShp,
-				"Shoreline":dShp,
-				"Sub-basins":cShp			
+				"<a target='_blank' href='http://dx.doi.org/10.7910/DVN/ITMMCB'>Rivers</a>":bShp,
+				"<a target='_blank' href='http://dx.doi.org/10.7910/DVN/PWFW26'>Shoreline</a>":dShp,
+				"<a target='_blank' href='http://dx.doi.org/10.7910/DVN/LCW9VA'>Sub-basins</a>":cShp		
 			};
-			
-			
+							
 			//add control to map
 			L.control.layers(baseMaps,overLays,{collapsed:false}).addTo(map);
 				
