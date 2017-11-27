@@ -56,26 +56,19 @@
 			var a = L.geoJson(poly2, {
 				style: BasinStyle}),
 				
-			    
 				b = L.geoJson(subrivers, {
 				style: Rivers}),
-				
-			//switch statement to categorically style	
 			
 				c = L.geoJson(subbasin1, {
 				style: subbasinstyle}),
 				
 				d = L.geoJson(shoreline, {
-				style: Shoreline_style}),
-				
-				//switch statement to categorically style	
+				style: Shoreline_style}),	
 				
 				e = L.geoJson(countries, {
 				style: Country_style,
 					onEachFeature: onEachFeature
 				}),
-				
-				//bind popups
 				
 				f = L.geoJson(institutions, {
 					onEachFeature: function (feature, layer){
@@ -153,11 +146,18 @@
 				opacity: 0.9
 			});
 				
+			// Set up Terrain png, set bounds
+			var imageUrl2 = './src/images/terrain_basin.png',
+   				imageBounds2 = [[-4.2679291, 27.0615972], [1.5438602, 38.0711951]];
+			var terrImage = L.imageOverlay(imageUrl2, imageBounds2,{
+				opacity: 0.9
+			});
+				
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 				
 			// Set Map Extent, View, and Default Layers
 			var map = L.map('map', {
-				layers: [OpenStreetMap_Mapnik, dShp, fShp, bathyImage]
+				layers: [OpenStreetMap_Mapnik, dShp, fShp, bathyImage,terrImage]
 				}).setView([-1.250, 32.930699], 7.5);
 				
 
