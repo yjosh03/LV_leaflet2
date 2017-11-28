@@ -32,6 +32,7 @@
 		<script src="./src/overlays/shoreline_line.js"></script>
 		<script src="./src/overlays/CountryBoundaries.js"></script>
 		<script src="./src/overlays/research_institutions.js"></script>
+		<script src="./src/overlays/Strata.js"></script>
 	
 	</head>
 		<body>
@@ -89,7 +90,9 @@
 				
 				eShp = L.layerGroup([e]),
 				
-				fShp = L.layerGroup([f]);
+				fShp = L.layerGroup([f]),
+				
+				gShp = L.layerGroup([g]);
 			
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 				
@@ -223,7 +226,8 @@
 			var overLays = {
 				"<a target='_blank' href='http://dx.doi.org/10.7910/DVN/Z5RMYD'>Basin</a>": aShp,
 				"<a target='_blank' href='http://dx.doi.org/10.7910/DVN/SOEKNR'>Bathymetry</a>":bathyImage,
-				"Country Boundaries":eShp,				
+				"Country Boundaries":eShp,
+				"<a target='_blank' href='http://dx.doi.org/10.7910/DVN/KM6FXA'>Lake Strata</a>":gShp,
 				"Partner Research Institutions":fShp,
 				"<a target='_blank' href='http://dx.doi.org/10.7910/DVN/ITMMCB'>Rivers</a>":bShp,
 				"<a target='_blank' href='http://dx.doi.org/10.7910/DVN/PWFW26'>Shoreline</a>":dShp,
