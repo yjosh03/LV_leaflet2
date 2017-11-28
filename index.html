@@ -68,11 +68,6 @@
 				d = L.geoJson(shoreline, {
 				style: Shoreline_style}),	
 				
-				e = L.geoJson(countries, {
-				style: Country_style,
-					onEachFeature: onEachFeature
-				}),
-				
 				f = L.geoJson(institutions, {
 					onEachFeature: function (feature, layer){
 						popupOptions = {maxWidth: 250};
