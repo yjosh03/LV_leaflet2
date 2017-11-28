@@ -255,7 +255,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////				
 			
-			// Set up legend 1
+			// Set up Bathy legend
 			var bLegend = L.control({position: 'bottomright'});
 			bLegend.onAdd = function (map) {
 			var div = L.DomUtil.create('div', 'info legend');
@@ -264,7 +264,7 @@
 			return div;
 			};
 			
-			// Set up legend
+			// Set up Countries legend 
 			var cLegend = L.control({position: 'bottomright'});
 			cLegend.onAdd = function (map) {
 			var div = L.DomUtil.create('div', 'info legend');
@@ -272,7 +272,15 @@
 			    '<img src="./src/images/countries_leg.png" alt="legend2" width="170" height="134">';
 			return div;
 			};
-			
+				
+			// Set up Terrian legend 
+			var dLegend = L.control({position: 'bottomright'});
+			dLegend.onAdd = function (map) {
+			var div = L.DomUtil.create('div', 'info legend');
+			    div.innerHTML +=
+			    '<img src="./src/images/terr_leg.png" alt="legend3" width="170" height="134">';
+			return div;
+			};
 			
 			// Add this one (only) for now, as the Bathymetry layer is on by default
 			bLegend.addTo(map);
@@ -285,6 +293,9 @@
 			    if (eventLayer.name === 'Country Boundaries') {
 				this.removeControl(cLegend);
 			    }
+			    if (eventLayer.name === "<a target='_blank' href='http://dx.doi.org/10.7910/DVN/MUVMII'>Basin Terrain</a>") {
+				this.removeControl(dLegend);
+			    }
 			});
 			map.on('overlayadd', function (eventLayer) {
 			    // if layer add = bathyImage add legend
@@ -294,8 +305,11 @@
 			    if (eventLayer.name === 'Country Boundaries') {
 				cLegend.addTo(this);
 			    }
+			    if (eventLayer.name === "<a target='_blank' href='http://dx.doi.org/10.7910/DVN/MUVMII'>Basin Terrain</a>") {
+				dLegend.addTo(this);
+			    }
 			});
-						
+										
 			</script>
 			
 		</body>
