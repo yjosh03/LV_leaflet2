@@ -11,7 +11,7 @@ var institutions ={
 f = L.geoJson(institutions, {
 					onEachFeature: function (feature, layer){
 						popupOptions = {maxWidth: 250};
-						layer.bindPopup("<b>Research Instituition:</b> " + feature.properties.Institutio
+						layer.bindPopup("<b>Research Instituition:</b> " +'<a target="_blank" href="'+ feature.properties.Website + '"> '+ feature.properties.Institution + '</a>'
 						,popupOptions);
 						}
 						})
