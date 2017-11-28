@@ -43,41 +43,21 @@
 			<script>
 							
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-				
-			// Call geoJson and styles from js			
-			var a = L.geoJson(poly2, {
-				style: BasinStyle}),
-				
-				b = L.geoJson(subrivers, {
-				style: Rivers}),
-			
-				c = L.geoJson(subbasin1, {
-				style: subbasinstyle}),
-				
-				d = L.geoJson(shoreline, {
-				style: Shoreline_style}),	
-				
-				f = L.geoJson(institutions, {
-					onEachFeature: function (feature, layer){
-						popupOptions = {maxWidth: 250};
-						layer.bindPopup("<b>Research Instituition:</b> " + feature.properties.Institutio
-						,popupOptions);
-						}
-						})
-		
-			//assigning variables to layers for control	
+					
+			//assigning variables to layers for control
+				// Basin layer
 			var aShp = L.layerGroup([a]),
-				
+				// Rivers
 				bShp = L.layerGroup([b]),
-				
+				// Subbasin
 				cShp = L.layerGroup([c]),
-				
+				// Shoreline
 				dShp = L.layerGroup([d]),
-				
+				// Countries
 				eShp = L.layerGroup([e]),
-				
+				// Research Institutions
 				fShp = L.layerGroup([f]),
-				
+				// Strata
 				gShp = L.layerGroup([g]);
 			
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -200,26 +180,24 @@
 			var baseMaps = {
 				"Bing Imagery": bingLayer,
 				"Esri Imagery": Esri_WorldImagery,
-				"Gray Scale":Stamen_TonerLite,
+				"Gray Scale": Stamen_TonerLite,
 				"Open Street Map": OpenStreetMap_Mapnik,
 				"Open Topo Map": OpenTopoMap,
 				"Nasa Night View": NASAGIBS_ViirsEarthAtNight2012,
 				"National Geographic": Esri_NatGeoWorldMap
 			};
 			
-			
 			// Create overlays variable to call within the control. Calls layer groups
 			var overLays = {
 				"<a target='_blank' href='http://dx.doi.org/10.7910/DVN/Z5RMYD'>Basin</a>": aShp,
+				"<a target='_blank' href='http://dx.doi.org/10.7910/DVN/MUVMII'>Basin Terrain</a>":terrImage,
 				"<a target='_blank' href='http://dx.doi.org/10.7910/DVN/SOEKNR'>Bathymetry</a>":bathyImage,
 				"Country Boundaries":eShp,
 				"<a target='_blank' href='http://dx.doi.org/10.7910/DVN/KM6FXA'>Lake Strata</a>":gShp,
 				"Partner Research Institutions":fShp,
 				"<a target='_blank' href='http://dx.doi.org/10.7910/DVN/ITMMCB'>Rivers</a>":bShp,
 				"<a target='_blank' href='http://dx.doi.org/10.7910/DVN/PWFW26'>Shoreline</a>":dShp,
-				"<a target='_blank' href='http://dx.doi.org/10.7910/DVN/LCW9VA'>Sub-basins</a>":cShp,
-				"<a target='_blank' href='http://dx.doi.org/10.7910/DVN/MUVMII'>Basin Terrain</a>":terrImage
-
+				"<a target='_blank' href='http://dx.doi.org/10.7910/DVN/LCW9VA'>Sub-basins</a>":cShp
 			};
 				
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -233,10 +211,10 @@
 				      	"Wind": wind};
 							
 			//add control to map
-				L.control.layers('',overLays,{collapsed:false}).addTo(map);
-				L.control.layers(baseMaps).addTo(map);				
-				L.control.layers('',owmMaps).addTo(map);
-							
+			L.control.layers('',overLays,{collapsed:false}).addTo(map);
+			L.control.layers(baseMaps).addTo(map);				
+			L.control.layers('',owmMaps).addTo(map);
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////				
 
 			// Add scale to bottomright
@@ -265,16 +243,7 @@
 			    '<img src="./src/images/bathylegend.png" alt="legend1" width="140" height="147">';
 			return div;
 			};
-			
-			// Set up Countries legend 
-			var cLegend = L.control({position: 'bottomright'});
-			cLegend.onAdd = function (map) {
-			var div = L.DomUtil.create('div', 'info legend');
-			    div.innerHTML +=
-			    '<img src="./src/images/countries_leg.png" alt="legend2" width="170" height="134">';
-			return div;
-			};
-				
+							
 			// Set up Terrian legend 
 			var dLegend = L.control({position: 'bottomright'});
 			dLegend.onAdd = function (map) {
@@ -292,9 +261,6 @@
 			    if (eventLayer.name === "<a target='_blank' href='http://dx.doi.org/10.7910/DVN/SOEKNR'>Bathymetry</a>") {
 				this.removeControl(bLegend);
 			    }
-			    if (eventLayer.name === 'Country Boundaries') {
-				this.removeControl(cLegend);
-			    }
 			    if (eventLayer.name === "<a target='_blank' href='http://dx.doi.org/10.7910/DVN/MUVMII'>Basin Terrain</a>") {
 				this.removeControl(dLegend);
 			    }
@@ -303,9 +269,6 @@
 			    // if layer add = bathyImage add legend
 			    if (eventLayer.name === "<a target='_blank' href='http://dx.doi.org/10.7910/DVN/SOEKNR'>Bathymetry</a>") {
 				bLegend.addTo(this);
-			    }
-			    if (eventLayer.name === 'Country Boundaries') {
-				cLegend.addTo(this);
 			    }
 			    if (eventLayer.name === "<a target='_blank' href='http://dx.doi.org/10.7910/DVN/MUVMII'>Basin Terrain</a>") {
 				dLegend.addTo(this);
