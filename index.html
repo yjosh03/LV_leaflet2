@@ -269,9 +269,11 @@
 			    // if layer add = bathyImage add legend
 			    if (eventLayer.name === "<a target='_blank' href='http://dx.doi.org/10.7910/DVN/SOEKNR'>Bathymetry</a>") {
 				bLegend.addTo(this);
+				this.removeControl(dLegend);
 			    }
 			    if (eventLayer.name === "<a target='_blank' href='http://dx.doi.org/10.7910/DVN/MUVMII'>Basin Terrain</a>") {
 				dLegend.addTo(this);
+				this.removeControl(bLegend);
 			    }
 			});
 										
