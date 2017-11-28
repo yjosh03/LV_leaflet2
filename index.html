@@ -141,14 +141,6 @@
 			maxZoom: 20
 			});
 			
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-			var clouds = L.OWM.clouds({showLegend: false, opacity: 0.5, appId: '8da5919e4115ae3570f46f9e98e6ed66'});
-			var temp = L.OWM.temperature({appId: '8da5919e4115ae3570f46f9e98e6ed66'});
-			var wind = L.OWM.wind({appId: '8da5919e4115ae3570f46f9e98e6ed66'});
-			var owmMaps = { "Clouds": clouds,
-				        "Tempurature": temp,
-				      	"Wind": wind};
 				
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 				
@@ -245,6 +237,16 @@
 				"<a target='_blank' href='http://dx.doi.org/10.7910/DVN/MUVMII'>Basin Terrain</a>":terrImage
 
 			};
+				
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+			var clouds = L.OWM.clouds({showLegend: false, opacity: 0.5, appId: '8da5919e4115ae3570f46f9e98e6ed66'});
+			var temp = L.OWM.temperature({appId: '8da5919e4115ae3570f46f9e98e6ed66'});
+			var wind = L.OWM.wind({appId: '8da5919e4115ae3570f46f9e98e6ed66'});
+				
+			var owmMaps = { "Clouds": clouds,
+				        "Tempurature": temp,
+				      	"Wind": wind};
 							
 			//add control to map
 				L.control.layers('',overLays,{collapsed:false}).addTo(map);
