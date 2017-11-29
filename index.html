@@ -102,6 +102,7 @@
 			});
 			var BING_KEY = 'AgMkVIi-eouMUjzdcqxVdMai9h_buTlJOYqkobbH5nL4it28_abiTPyf174m7enr'
 			var bingLayer = L.tileLayer.bing(BING_KEY, {
+			name:'bing',
 			maxZoom: 20
 			});
 			
@@ -121,14 +122,6 @@
 			var terrImage = L.imageOverlay(imageUrl2, imageBounds2,{
 				opacity: 0.9
 			});
-				
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-				
-			// Set Map Extent, View, and Default Layers
-			var map = L.map('map', {
-				layers: [ bingLayer,dShp, bathyImage, terrImage]
-				}).setView([-1.250, 32.930699], 7.2);
-				
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////				
 			
@@ -169,6 +162,10 @@
 				format: 'jpg',
 				time: '',
 				tilematrixset: 'GoogleMapsCompatible_Level'
+			});
+			var bingLayer2 = L.tileLayer.bing(BING_KEY, {
+			name:'bing2',
+			maxZoom: 20
 			});
 			
 			
@@ -212,23 +209,26 @@
 				        "Tempurature": temp,
 				      	"Wind": wind};		
 							
+				
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-							
+			
+	// Initalize Map , add-ins to map
+			// Set Map Extent, View, and Default Layers
+			var map = L.map('map', {
+				layers: [ bingLayer,dShp, bathyImage, terrImage]
+				}).setView([-1.250, 32.930699], 7.2);
+											
 			//add control to map
 			L.control.layers('',overLays,{collapsed:false}).addTo(map);
 			L.control.layers(baseMaps).addTo(map);				
 			L.control.layers('',owmMaps).addTo(map);
 				
 			// Add inset map to map and specify basemaps to show
-			L.control.overview([OpenStreetMap_Mapnik2,OpenTopoMap2,Esri_WorldImagery2,Esri_NatGeoWorldMap2,Stamen_TonerLite2,NASAGIBS_ViirsEarthAtNight20122]).addTo(map);
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////				
+			L.control.overview([OpenStreetMap_Mapnik2,OpenTopoMap2,Esri_WorldImagery2,Esri_NatGeoWorldMap2,Stamen_TonerLite2,NASAGIBS_ViirsEarthAtNight20122,bingLayer2]).addTo(map);
 
 			// Add scale to bottomright
 			L.control.scale({position:'bottomright'}).addTo(map);
 				
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////				
-
 			//Check this and associated scripts for errors. Displays tool
 			var measureControl = new L.Control.Measure(
 				{
