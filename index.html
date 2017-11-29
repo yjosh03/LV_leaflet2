@@ -63,6 +63,9 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 				
 			// Set-Up Background images
+			var bmap = L.tileLayer('http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.png', {
+             			 maxZoom: 17
+			});
 			var OpenStreetMap_Mapnik = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {	
 				name:'osm',
 				maxZoom: 19,
@@ -181,6 +184,7 @@
 				
 			// Create basemaps variable to call within the control
 			var baseMaps = {
+				"BaseMap": bmap,
 				"<span style='color: darkgray'>Bing Imagery</span>": bingLayer,
 				"<span style='color: darkgray'>ESRI Imagery</span>": Esri_WorldImagery,
 				"<span style='color: gray'>Grayscale</span>": Stamen_TonerLite,
