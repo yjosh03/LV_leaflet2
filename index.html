@@ -171,9 +171,15 @@
 				tilematrixset: 'GoogleMapsCompatible_Level'
 			});
 			
-			// Add inset map to map and specify basemaps to show
-			L.control.overview([OpenStreetMap_Mapnik2,OpenTopoMap2,Esri_WorldImagery2,Esri_NatGeoWorldMap2,Stamen_TonerLite2,NASAGIBS_ViirsEarthAtNight20122]).addTo(map);
-
+			
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+			
+			// Set-up/ Call weather layers
+			var clouds = L.OWM.clouds({showLegend: false, opacity: 0.5, appId: '8da5919e4115ae3570f46f9e98e6ed66'});
+			var rain = L.OWM.rain({opacity: 0.5, appId: '8da5919e4115ae3570f46f9e98e6ed66'});
+			var temp = L.OWM.temperature({opacity: 0.5, appId: '8da5919e4115ae3570f46f9e98e6ed66'});
+			var wind = L.OWM.wind({opacity: 0.5, appId: '8da5919e4115ae3570f46f9e98e6ed66'});
+							
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 				
 			// Create basemaps variable to call within the control
@@ -199,21 +205,22 @@
 				"<a target='_blank' href='http://dx.doi.org/10.7910/DVN/PWFW26'>Shoreline</a>":dShp,
 				"<a target='_blank' href='http://dx.doi.org/10.7910/DVN/LCW9VA'>Sub-basins</a>":cShp
 			};
-				
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-			var clouds = L.OWM.clouds({showLegend: false, opacity: 0.5, appId: '8da5919e4115ae3570f46f9e98e6ed66'});
-			var temp = L.OWM.temperature({opacity: 0.5, appId: '8da5919e4115ae3570f46f9e98e6ed66'});
-			var wind = L.OWM.wind({opacity: 0.5, appId: '8da5919e4115ae3570f46f9e98e6ed66'});
-				
+			
+			// Create OWMMaps for control
 			var owmMaps = { "Clouds": clouds,
+				        "Rain": rain,
 				        "Tempurature": temp,
-				      	"Wind": wind};
+				      	"Wind": wind};		
+							
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 							
 			//add control to map
 			L.control.layers('',overLays,{collapsed:false}).addTo(map);
 			L.control.layers(baseMaps).addTo(map);				
 			L.control.layers('',owmMaps).addTo(map);
+				
+			// Add inset map to map and specify basemaps to show
+			L.control.overview([OpenStreetMap_Mapnik2,OpenTopoMap2,Esri_WorldImagery2,Esri_NatGeoWorldMap2,Stamen_TonerLite2,NASAGIBS_ViirsEarthAtNight20122]).addTo(map);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////				
 
