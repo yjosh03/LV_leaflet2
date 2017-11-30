@@ -18,3 +18,9 @@ html, body, #map {
     width: 300px;
 	z-index: 1;
 }
+.countryLabel{
+  background: rgba(255, 255, 255, 0);
+  border:0;
+  border-radius:0px;
+  box-shadow: 0 0px 0px;
+}
