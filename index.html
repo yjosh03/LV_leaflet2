@@ -221,8 +221,8 @@
 	// Initalize Map , add-ins to map
 			// Set Map Extent, View, and Default Layers
 			var map = L.map('map', {
-				layers: [ bingLayer,dShp, bathyImage, terrImage]
-				}).setView([-1.250, 32.930699], 7.2);
+				layers: [ Esri_NatGeoWorldMap,dShp, bathyImage, terrImage]
+				}).setView([-1.250, 32.930699], 6);
 											
 			//add control to map
 			L.control.layers('',overLays,{collapsed:false}).addTo(map);
